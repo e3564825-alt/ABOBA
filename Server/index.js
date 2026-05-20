@@ -1,22 +1,16 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const loginRouter = require('./controllers/LoginController');
-const userRouter = require('./controllers/UserController');
-
+const { resolve } = require('path');
+const UserController = require('./controllers/UserController');
+const LoginController = require('./controllers/LoginController');
 const app = express();
-const port = Number(process.env.PORT) || 3011;
-
-app.use(
-  cors({
-    origin: ['http://localhost:3001', 'http://127.0.0.1:3001'],
-  })
-);
-app.use(express.json());
-
-app.use('/api', loginRouter);
-app.use('/api/users', userRouter);
-
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+const port =  3011;
+app.use(cors());
+app.use(express.static('static'));
+app.use('/api/users', UserController);
+app.use('/api/login', LoginController);
+app.listen(3011, () => {
+  console.log('process.env ', process.env)
+  console.log(`Example app listening at http://localhost:${port}`);
 });

@@ -79,24 +79,13 @@ export default {
         alert('Заполните email и пароль');
         return;
       }
-
       this.loading = true;
       try {
-        const authRes = await this.loginService.authorizationUser(
-          this.loginEmail,
-          this.loginPassword
-        );
-
-        // Сохранение recordId пользователя в sessionStorage
+        const authRes = await this.loginService.authorizationUser(this.loginEmail, this.loginPassword);
         sessionStorage.setItem('userRecordId', authRes.userId);
-
-        // Получение данных текущего пользователя
         const userData = await this.userService.getCurrentUser(authRes.userId);
         const fields = userData.fields;
-        const fullName = `${fields.Surname || ''} ${fields.Name || ''} ${
-          fields.Patronymic || ''
-        }`.trim();
-
+        const fullName = `${fields.Surname || ''} ${fields.Name || ''} ${fields.Patronymic || ''}`.trim();
         sessionStorage.setItem('userName', fullName);
         this.$emit('login-success', { userName: fullName });
         this.close();
