@@ -7,6 +7,7 @@ const LoginController = require('./controllers/LoginController');
 const app = express();
 const port =  3011;
 app.use(cors());
+app.use(express.json());
 app.use(express.static('static'));
 app.use('/api/users', UserController);
 app.use('/api/login', LoginController);

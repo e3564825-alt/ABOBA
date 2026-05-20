@@ -10,10 +10,8 @@ export async function fetchData(url, options = {}) {
             ...options,
         });
         if (!response.ok) {
-            throw new Error({
-                ...response,
-                message: `Ошибка: ${response.status} ${response.statusText}`,
-            });
+            const body = await response.json().catch(() => ({}));
+            throw new Error(body.message || `Ошибка: ${response.status} ${response.statusText}`);
         }
         console.log(response)
         return await response.json();

@@ -91,7 +91,7 @@ export default {
         this.close();
       } catch (error) {
         console.error(error);
-        alert('Неверный email или пароль');
+        alert(error.message || 'Неверный email или пароль');
       } finally {
         this.loading = false;
       }
