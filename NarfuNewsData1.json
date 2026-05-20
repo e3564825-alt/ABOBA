@@ -1,0 +1,34 @@
+{
+  "NewsArray": [
+    {
+      "newId": 1,
+      "newsTitle": "Заголовок новости",
+      "newsDescription": "Описание новости",
+      "newsDate": "1 мая 2026 10:00"
+    },
+    {
+      "newId": 2,
+      "newsTitle": "Заголовок новости",
+      "newsDescription": "Описание новости",
+      "newsDate": "1 мая 2026 10:00"
+    },
+    {
+      "newId": 3,
+      "newsTitle": "Заголовок новости",
+      "newsDescription": "Описание новости",
+      "newsDate": "1 мая 2026 10:00"
+    },
+    {
+      "newId": 4,
+      "newsTitle": "Заголовок новости",
+      "newsDescription": "Описание новости",
+      "newsDate": "1 мая 2026 10:00"
+    },
+    {
+      "newId": 5,
+      "newsTitle": "Заголовок новости",
+      "newsDescription": "Описание новости",
+      "newsDate": "1 мая 2026 10:00"
+    }
+  ]
+}
