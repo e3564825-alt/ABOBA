@@ -11,7 +11,10 @@ export async function fetchData(url, options = {}) {
         });
         if (!response.ok) {
             const body = await response.json().catch(() => ({}));
-            throw new Error(body.message || `Ошибка: ${response.status} ${response.statusText}`);
+            const detail = body.detail ? `: ${body.detail}` : '';
+            throw new Error(
+                (body.message || `Ошибка: ${response.status} ${response.statusText}`) + detail
+            );
         }
         console.log(response)
         return await response.json();

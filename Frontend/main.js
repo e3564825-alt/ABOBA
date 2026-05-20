@@ -27,7 +27,7 @@ const vuetify = createVuetify({
     },
   },
 });
-
+import { registerServices } from './src/plugins/api/services/index.js'
 const app = createApp(App);
 
 app.provide('loginService', LoginService);
